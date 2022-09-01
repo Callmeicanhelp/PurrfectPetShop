@@ -42,7 +42,7 @@ const categoryController = {
     Category.findOneAndUpdate({ _id: params.id }, body, { new: true })
       .then(dbCategoryData => {
         if (!dbCategoryData) {
-          res.status(404).json({ message: 'No pizza found with this id!' });
+          res.status(404).json({ message: 'No category found with this id!' });
           return;
         }
         res.json(dbCategoryData);
@@ -57,3 +57,5 @@ const categoryController = {
       .catch(err => res.json(err));
   }
 }
+
+module.exports = categoryController;
