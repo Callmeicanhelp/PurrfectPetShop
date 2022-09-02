@@ -7,12 +7,12 @@ const Navbar = () => {
 				<a className='navbar-item' href='/'>Purrfect Pet Shop</a>
 			</div>
 			<div className='navbar-menu'>
-				<a className='navbar-item navbar-divider' href='/costumes'>Costumes</a>
-				<a className='navbar-item navbar-divider' href='/accessories'>Accessories</a>
-				<a className='navbar-item navbar-divider' href='/toys'>Toys</a>
-				<a className='navbar-item navbar-divider' href='/towers'>Towers</a>
-				<a className='navbar-item navbar-divider' href='/signup'>Sign up!</a>
-				<a className='navbar-item navbar-divider' href='/login'>Login</a>
+				<a className='navbar-item' href='/costumes'>Costumes</a>
+				<a className='navbar-item' href='/accessories'>Accessories</a>
+				<a className='navbar-item' href='/toys'>Toys</a>
+				<a className='navbar-item' href='/towers'>Towers</a>
+				<a className='navbar-item' href='/signup'>Sign up!</a>
+				<a className='navbar-item' href='/login'>Login</a>
 			</div>
 		</nav>
 	)
