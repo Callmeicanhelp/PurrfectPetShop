@@ -13,5 +13,8 @@ code {
 }
 
 .heroImg {
-	height: 50%;
-}
+  width: 100vw;
+  height: 70vh;
+  position: relative;
+  object-fit: cover;
+} 

@@ -10,7 +10,9 @@ function Home() {
 						Where you can find pawsome deals for your furry friends
 					</p>
 				</div>
-				<img src={require("../images/heroHomePage.jpg")} alt="cat laying upside down" className="heroImg"></img>
+				<div className="imgContainer">
+					<img src={require("../images/heroHomePage.jpg")} alt="cat laying upside down" className="heroImg"></img>
+				</div>
 			</section>
 			<h1 className="title">About Us</h1>
 			<h2 className="subtitle">
