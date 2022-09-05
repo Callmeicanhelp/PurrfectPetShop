@@ -28,6 +28,7 @@ function App() {
         </Router>
       </header>
       <Footer />
+
     </div>
   );
 }
