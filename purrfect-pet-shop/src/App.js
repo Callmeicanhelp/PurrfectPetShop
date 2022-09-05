@@ -9,7 +9,7 @@ import Toys from './pages/Toys'
 import Towers from './pages/Towers'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
-import Footer from './components/Footer';
+
 
 function App() {
   return (
