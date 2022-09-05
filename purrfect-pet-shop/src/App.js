@@ -1,6 +1,7 @@
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import Home from './pages/Home'
 import Costumes from './pages/Costumes'
 import Accessories from './pages/Accessories'
@@ -12,7 +13,7 @@ import Login from './pages/Login'
 function App() {
   return (
     <div className="App">
-      <header>
+      	<header>
 				<Navbar />
 				<Router>
 					<Routes>
@@ -25,7 +26,8 @@ function App() {
 						<Route path="/login" element={<Login />} />
 					</Routes>
 				</Router>
-			</header>
+		</header>
+		<Footer/>
     </div>
   );
 }
