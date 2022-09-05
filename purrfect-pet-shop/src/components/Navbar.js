@@ -16,9 +16,6 @@ const Navbar = () => {
 					<a className='navbar-item' href='/towers'>Towers</a>
 
 					<a className='navbar-item navbar-end' href='/signup'>Sign up!</a>
-
-					<a className='navbar-item' href='/signup'>Sign up!</a>
-
 					<a className='navbar-item' href='/login'>Login</a>
 				</div>
 			</div>
