@@ -8,21 +8,22 @@ import Toys from './pages/Toys'
 import Towers from './pages/Towers'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
       <header>
-				<Navbar />
+					<Navbar />
 				<Router>
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/costumes" element={<Costumes />} />
+						{/* <Route path="/costumes" element={<Costumes />} />
 						<Route path="/accessories" element={<Accessories />} />
 						<Route path="/toys" element={<Toys />} />
 						<Route path="/towers" element={<Towers />} />
 						<Route path="/signup" element={<Signup />} />
-						<Route path="/login" element={<Login />} />
+						<Route path="/login" element={<Login />} /> */}
 					</Routes>
 				</Router>
 			</header>
