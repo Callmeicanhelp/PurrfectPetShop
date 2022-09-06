@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Callmeicanhelp/PurrfectPetShop#readme",
   "dependencies": {
+    "@syncfusion/ej2-layouts": "^20.2.46",
     "apollo-server-express": "^3.10.2",
     "bcrypt": "^5.0.1",
     "express": "^4.18.1",
