@@ -7,6 +7,10 @@ const categorySchema = new Schema({
     type: String,
     required: true,
     trim: true
+  },
+  id: {
+    type: Number,
+    required: true
   }
 });
 
