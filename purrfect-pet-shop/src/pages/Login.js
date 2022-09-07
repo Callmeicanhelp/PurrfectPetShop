@@ -1,9 +1,12 @@
 import {useState} from 'react'
+import Cookie from 'js-cookie'
+
 
 function Login() {
-	const [formState, setFormState] = useState({email:'', message:''});
-	const {email,password} = formState
+	const [loginInfo, setLoginInfo] = useState({email:"", password:""})
+	const {email,password} = loginInfo
 	const [error, setError] = useState('');
+	const [loginMessage, setLoginMessage] = useState({type:"", msg:""})
 
 	function validateEmail(email) {
 		var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -26,24 +29,39 @@ function Login() {
 				setError('')
 			}
 		}
-		setFormState({...formState, [e.target.name]: [e.target.value]});
+		setLoginInfo({...loginInfo, [e.target.name]: [e.target.value]});
 
 		if(!error) {
-			setFormState({...formState, [e.target.name]: [e.target.value]});
+			setLoginInfo({...loginInfo, [e.target.name]: [e.target.value]});
 		}
 	}
 
-	function submitChange(e) {
+	const submitLogin = async (e) => {
 		e.preventDefault();
+		setLoginMessage({type:"", msg:""})
+		const verify = await fetch("/api/user/auth", {
+			method:"POST",
+			headers: {"Content-Type": "application/json"},
+			body: JSON.stringify(loginInfo)
+		})
+		const verifyLogin = await verifyLogin.json()
+
+		if(verifyLogin === "success"){
+			Cookie.set("auth-token", verifyLogin.token)
+			setLoginMessage({type:"success", message:"Login successful! Welcome back! 😊"})
+		} else {
+			setLoginMessage({type:"danger", message:"Invalid login please try again"})
+		}
+		setLoginInfo({email:"", password:""})
 	}
 	return(
-		<form onSubmit={submitChange}>
+		<form onSubmit={submitLogin}>
 			<br></br>
 			<h1 className="title">Welcome Back! Please Login</h1>
 			<br></br>
 			<div className="field">
 				<p className="control has-icons-left has-icons-right">
-					<input className="input is-primary is-rounded is-medium" type="email" onChange={change} name="email" defaultValue={email} placeholder="Email"></input>
+					<input className="input is-primary is-rounded is-medium" type="email" onChange={ (e) => setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value })} name="email" value={loginInfo.email} placeholder="Email"></input>
 					<span className="icon is-left">
 						<i className="fas fa-envelope"></i>
 					</span>
@@ -54,7 +72,7 @@ function Login() {
 			</div>
 			<div className="field">
 				<p className="control has-icons-left">
-					<input className="input is-primary is-rounded is-medium" type="password" onChange={change} name="password" defaultValue={password} placeholder="Password"></input>
+					<input className="input is-primary is-rounded is-medium" type="password" onChange={ (e) => setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value })} name="password" value={loginInfo.password} placeholder="Password"></input>
 					<span className="icon is-medium is-left">
 						<i className="fas fa-lock"></i>
 					</span>
