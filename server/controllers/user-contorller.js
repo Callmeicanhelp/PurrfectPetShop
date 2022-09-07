@@ -19,7 +19,7 @@ const newUser = async (req, res) => {
 const getAllUsers = async (req, res) => {
 	try{
 		const allUsers = await User.find({});
-		res.status(200).json({result: 'success', paload: allUsers})
+		res.status(200).json({result: 'success', payload: allUsers})
 	} catch(err) {
 		res.status(400).json({message:'Cannot find users'})
 	}
@@ -56,11 +56,10 @@ const lookupUserByToken = async (req, res) => {
   // The node package named cookie will parse cookies for us
   const cookies = cookie.parse(req.headers.cookie)
 
-  // Get the token from the request headers & decode it 
-  const token = cookies["auth-token"]  //cookies.authToken
+  const token = cookies["auth-token"] 
+
   if( !token ) return res.status(401).json({msg: "un-authorized"})
-  
-  // Look up the user from the decoded token
+
   const isVerified = jwt.verify(token, process.env.JWT_SECRET)
   if( !isVerified ) return res.status(401).json({msg: "un-authorized"})
 
