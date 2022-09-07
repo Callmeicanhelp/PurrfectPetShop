@@ -13,6 +13,7 @@ const Navbar = () => {
 				<a className='navbar-item' href='/towers'>Towers</a>
 				<a className='navbar-item' href='/signup'>Sign up!</a>
 				<a className='navbar-item' href='/login'>Login</a>
+				<a className='navbar-item' href='/account'>Your Account</a>
 			</div>
 		</nav>
 	)
