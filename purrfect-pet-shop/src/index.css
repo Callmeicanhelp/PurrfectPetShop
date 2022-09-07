@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.heroImg {
+  width: 100vw;
+  height: 70vh;
+  position: relative;
+  object-fit: cover;
+} 
