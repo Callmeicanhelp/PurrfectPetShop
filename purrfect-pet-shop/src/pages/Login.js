@@ -61,7 +61,7 @@ function Login() {
 			<br></br>
 			<div className="field">
 				<p className="control has-icons-left has-icons-right">
-					<input className="input is-primary is-rounded is-medium" type="email" onChange={ (e) => setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value })} name="email" value={loginInfo.email} placeholder="Email"></input>
+					<input className="input is-primary is-rounded is-medium" type="email" onChange={change} name="email" value={loginInfo.email} placeholder="Email"></input>
 					<span className="icon is-left">
 						<i className="fas fa-envelope"></i>
 					</span>
@@ -72,7 +72,7 @@ function Login() {
 			</div>
 			<div className="field">
 				<p className="control has-icons-left">
-					<input className="input is-primary is-rounded is-medium" type="password" onChange={ (e) => setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value })} name="password" value={loginInfo.password} placeholder="Password"></input>
+					<input className="input is-primary is-rounded is-medium" type="password" onChange={change} name="password" value={loginInfo.password} placeholder="Password"></input>
 					<span className="icon is-medium is-left">
 						<i className="fas fa-lock"></i>
 					</span>
