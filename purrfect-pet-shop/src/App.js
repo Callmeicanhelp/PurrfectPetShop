@@ -8,6 +8,7 @@ import Toys from './pages/Toys'
 import Towers from './pages/Towers'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
+// import Account from './pages/Account'
 import Footer from './components/Footer';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
 						<Route path="/towers" element={<Towers />} />
 						<Route path="/signup" element={<Signup />} />
 						<Route path="/login" element={<Login />} />
+						{/* <Route pathh="/account" element={<Account />} */}
 					</Routes>
 				</Router>
 			</header>
