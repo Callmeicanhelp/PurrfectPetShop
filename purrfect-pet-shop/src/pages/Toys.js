@@ -1,24 +1,3 @@
-// import * as React from "react";
-// import * as ReactDOM from "react-dom";
-// export default class ReactApp extends React.Component {
-//   render() {
-//     return (
-//       <div class="card">
-//         <div class="card-image">
-//           <div class="card-title">JavaScript </div>
-//         </div>
-//         <div class="card-content">
-//           JavaScript Succinctly was written to give readers an accurate, concise
-//           examination of JavaScript objects and their supporting nuances, such
-//           as complex values, primitive values, scope, inheritance, the head
-//           object, and more.{" "}
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-// ReactDOM.render(<ReactApp />, document.getElementById("element"));
-
 function Toys() {
   return (
     <section>
