@@ -68,7 +68,7 @@ const productData = [
     category_id: 3,
   },
   {
-    product_name: "Spider Costume",
+    product_name: "Shark Costume",
     price: 29.99,
     stock: 2,
     category_id: 4,
@@ -86,7 +86,7 @@ const productData = [
     category_id: 4,
   },
   {
-    product_name: "Snake Costume",
+    product_name: "Dino Costume",
     price: 29.99,
     stock: 4,
     category_id: 4,
