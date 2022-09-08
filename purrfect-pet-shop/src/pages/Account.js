@@ -52,4 +52,4 @@ function AccountInfo() {
 }
 	
 
-export default Account
+export default AccountInfo
