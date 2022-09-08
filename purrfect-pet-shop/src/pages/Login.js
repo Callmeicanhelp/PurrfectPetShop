@@ -1,58 +1,25 @@
 import {useState} from 'react'
-import Cookie from 'js-cookie'
+import {useMutation} from '@apollo/client'
+import {LOGIN} from '../utils/mutations'
+import Auth from '../utils/auth'
 
-
-function Login() {
+const Login = (props) => {
 	const [loginInfo, setLoginInfo] = useState({email:"", password:""})
-	const {email,password} = loginInfo
-	const [error, setError] = useState('');
-	const [loginMessage, setLoginMessage] = useState({type:"", msg:""})
+	const [login, {error}] = useMutation(LOGIN);
 
-	function validateEmail(email) {
-		var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return re.test(String(email).toLowerCase());
+	function change(event) {
+		const {email, value}= event.target;
+		setLoginInfo({...loginInfo, [email]: value})
 	}
-
-	function change(e) {
-		if(e.target.name === 'email') {
-			const isValid = validateEmail(e.target.value);
-			console.log(isValid)
-			if(!isValid) {
-				setError('Invalid Email')
-			} else {
-				setError('')
-			}
-		} else {
-			if(!e.target.value.length) {
-				setError(`${e.target.name} is required`)
-			} else{
-				setError('')
-			}
-		}
-		setLoginInfo({...loginInfo, [e.target.name]: [e.target.value]});
-
-		if(!error) {
-			setLoginInfo({...loginInfo, [e.target.name]: [e.target.value]});
-		}
-	}
-
+	
 	const submitLogin = async (e) => {
 		e.preventDefault();
-		setLoginMessage({type:"", msg:""})
-		const verify = await fetch("/api/user/auth", {
-			method:"POST",
-			headers: {"Content-Type": "application/json"},
-			body: JSON.stringify(loginInfo)
-		})
-		const verifyLogin = await verify.json()
-
-		if(verifyLogin === "success"){
-			Cookie.set("auth-token", verifyLogin.token)
-			setLoginMessage({type:"success", message:"Login successful! Welcome back! 😊"})
-		} else {
-			setLoginMessage({type:"danger", message:"Invalid login please try again"})
+		try {
+			const {loginReq} = await login({ variables: {...loginInfo}});
+			Auth.login(loginReq.login.token)
+		} catch (e) {
+			console.error(e)
 		}
-		setLoginInfo({email:"", password:""})
 	}
 	return(
 		<form onSubmit={submitLogin}>
