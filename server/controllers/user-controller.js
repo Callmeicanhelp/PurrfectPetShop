@@ -5,7 +5,9 @@ const cookie = require("cookie");
 const bcrypt = require("bcrypt");
 const connection = require("../config/connection");
 
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 const newUser = async (req, res) => {
   try {
