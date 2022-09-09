@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Auth from "../utils/auth";
-import { validateEmail } from "../../utils/helpers";
+import { validateEmail } from "../utils/helpers";
 
 function AccountInfo() {
   const [formState, setFormState] = useState({ name: "", email: "", cart: "" });
-
+  const [profile, setProfile] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
   const { name, email, cart } = formState;
 
@@ -19,10 +19,17 @@ function AccountInfo() {
     return <h1>Go to Cart</h1>;
   }
 
+  useEffect(() => {
+    if (Auth.loggedIn()) {
+      setProfile(Auth.getProfile());
+    }
+  }, []);
+
   return (
     <section>
       <h1 data-testid="h1tag">Account Info</h1>
-      <form id="account-form" onSubmit={handleSubmit}>
+      <div>Welcome to your account. Your email is: {profile.email}</div>
+      {/* <form id="account-form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
           <input
@@ -58,7 +65,7 @@ function AccountInfo() {
         <button data-testid="button" type="submit">
           Submit
         </button>
-      </form>
+      </form> */}
     </section>
   );
 }

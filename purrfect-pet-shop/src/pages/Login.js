@@ -16,7 +16,7 @@ function Login() {
   function change(e) {
     if (e.target.name === "email") {
       const isValid = validateEmail(e.target.value);
-      console.log(isValid);
+
       if (!isValid) {
         setError("Invalid Email");
       } else {
@@ -29,10 +29,10 @@ function Login() {
         setError("");
       }
     }
-    setLoginInfo({ ...loginInfo, [e.target.name]: [e.target.value] });
+    setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
 
     if (!error) {
-      setLoginInfo({ ...loginInfo, [e.target.name]: [e.target.value] });
+      setLoginInfo({ ...loginInfo, [e.target.name]: e.target.value });
     }
   }
 
@@ -46,8 +46,8 @@ function Login() {
     });
     const verifyLogin = await verify.json();
 
-    if (verifyLogin === "success") {
-      Cookie.set("auth-token", verifyLogin.token);
+    if (verifyLogin.result === "success") {
+      localStorage.setItem("auth-token", verifyLogin.token);
       setLoginMessage({
         type: "success",
         message: "Login successful! Welcome back! 😊",

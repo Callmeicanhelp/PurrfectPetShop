@@ -9,7 +9,7 @@ import Towers from "./pages/Towers";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import React, { Component } from "react";
-// import Account from './pages/Account'
+import Account from "./pages/Account";
 import Footer from "./components/Footer";
 
 class App extends Component {
@@ -27,7 +27,7 @@ class App extends Component {
               <Route path="/towers" element={<Towers />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
-              {/* <Route pathh="/account" element={<Account />} */}
+              <Route path="/account" element={<Account />} />
             </Routes>
           </Router>
         </header>
