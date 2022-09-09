@@ -4,7 +4,7 @@
   "description": "",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node backend/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd purrfect-pet-shop && npm start\"",
     "install": "cd server && npm i && cd ../purrfect-pet-shop && npm i",
     "seed": "cd server && npm run seed",
@@ -33,5 +33,8 @@
     "mongoose": "^6.5.3",
     "nodemon": "^2.0.19",
     "react": "^18.2.0"
+  },
+  "engines": {
+    "node": "10.16.0"
   }
 }
