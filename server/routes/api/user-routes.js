@@ -2,13 +2,13 @@
 
 const router = require('express').Router()
 
-const { getAllUsers, getUserById, createUser, authenticateLogin, lookupUserByToken } = require('../../controllers/user-controller')
+const { getAllUsers, getUserById, newUser, authLogin, lookupUserByToken, getAllUsers } = require('../../controllers/user-contorller')
 
 // Declare the routes that point to the controllers above
 router.route('/').get(getAllUsers)
-router.route('/').post(createUser)
+router.route('/').post(newUser)
 
-router.route("/auth").post(authenticateLogin)
+router.route("/auth").post(authLogin)
 router.route("/lookup").get(lookupUserByToken)
 
 router.route('/:id').get(getUserById)
