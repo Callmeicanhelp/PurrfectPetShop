@@ -44,7 +44,7 @@ function Login() {
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify(loginInfo)
 		})
-		const verifyLogin = await verifyLogin.json()
+		const verifyLogin = await verify.json()
 
 		if(verifyLogin === "success"){
 			Cookie.set("auth-token", verifyLogin.token)
