@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const routes = require('./routes')
+const routes = require("./routes");
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../purrfect-pet-shop/build")));
 }
 
-app.use(routes)
+app.use(routes);
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../purrfect-pet-shop/build/index.html"));
 });

@@ -1,18 +1,18 @@
 [
-    {
-        "name": "Costumes",
-        "id": 1
-    },
-    {
-        "name": "Toys",
-        "id": 2
-    },
-    {
-        "name": "Towers",
-        "id": 3
-    },
-    {
-        "name": "Accessories",
-        "id": 4
-    }
+  {
+    "name": "Costumes",
+    "id": 1
+  },
+  {
+    "name": "Toys",
+    "id": 2
+  },
+  {
+    "name": "Towers",
+    "id": 3
+  },
+  {
+    "name": "Accessories",
+    "id": 4
+  }
 ]
